@@ -50,3 +50,5 @@ SELECT * FROM preco_de_casas
 
 SELECT * FROM preco_de_casas
     FETCH NEXT ROW ONLY;
+    
+-- Joamir Moraes
