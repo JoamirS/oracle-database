@@ -23,6 +23,9 @@ INSERT INTO test_dates (event_date, event_timestamp, description) VALUES (TO_DAT
 -- Confirmando as inserções
 COMMIT;
 
+
+-- Round Function
+
 SELECT SYSDATE TODAY, ROUND(SYSDATE, 'MM') ROUNDED_MONTH, ROUND(SYSDATE, 'RR') ROUNDED_YEAR
     FROM DUAL;
     
@@ -35,7 +38,29 @@ SELECT TO_CHAR(SYSDATE, 'DD-MON-YY HH24:MI:SS') AS RAW_DATE,
 FROM DUAL;
 
 
-SELECT TO_CHAR(TO_DATE('01-AUG-16 12:00:00', 'DD-MON-YY HH24:MI:SS'), 'DD-MON-YY HH:MI:SS') AS DAY_AT_NOON,
-        TO_CHAR(ROUND(TO_DATE('01-AUG-16 12:00:00', 'DD-MON-YY HH24:MI:SS')),
-        'DD-MON-YY HH:MI:SS') AS ROUNDED_TO_NEXT_DAY
+SELECT TO_CHAR(TO_DATE('01-AGO-16 12:01:00', 'DD-MON-YY HH24:MI:SS'), 'DD-MON-YY HH:MI:SS') AS DAY_AT_NOON,
+        TO_CHAR(ROUND(TO_DATE('01-AGO-16 12:00:00', 'DD-MON-YY HH24:MI:SS')), 'DD-MON-YY HH:MI:SS') AS ROUNDED_TO_NEXT_DAY
         FROM DUAL;
+
+
+
+-- Trunc Function
+-- Syntax: TRUNC(d, i)
+-- Trunc always rounds down
+SELECT SYSDATE TODAY, TRUNC(SYSDATE, 'MM') TRUNCATED_MONTH,
+        TRUNC(SYSDATE, 'RR') TRUNCATED_TEAR
+        FROM DUAL;
+
+-- Next_Day Function
+-- Syntax: Next_Day(d, c)
+SELECT NEXT_DAY(SYSDATE, 'Sábado') FROM DUAL;
+
+-- Last_Day Function
+-- Syntax: Last_Day(d)
+-- Shows the last day of the month
+SELECT LAST_DAY(SYSDATE) FROM DUAL;
+
+-- Add_Months Funtion
+-- Syntax: Add_months(d, n)
+SELECT ADD_MONTHS(SYSDATE, 1) FROM DUAL;
+SELECT ADD_MONTHS(SYSDATE, -1) FROM DUAL;
