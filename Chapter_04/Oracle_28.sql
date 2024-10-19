@@ -58,7 +58,7 @@ FROM
 SELECT LENGTH(texto_varchar2) FROM teste_caracteres;
 
 -- INSTR Function
--- Find the position in witch the chacterer is located.
+-- Find the position in wich the chacterer is located.
 SELECT
     INSTR(texto_varchar2, 'or', 1, 1) FROM teste_caracteres;
 
