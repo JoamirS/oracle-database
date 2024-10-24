@@ -44,6 +44,9 @@ SELECT
 -- Syntax: TRUNC(n,i)
 SELECT
     TRUNC(float_numero, 2) FROM numeros_teste;
+    
+SELECT
+    TRUNC(float_numero) FROM numeros_teste;
 
 SELECT
     TRUNC(float_numero, -1) FROM numeros_teste;
@@ -55,3 +58,5 @@ SELECT REMAINDER(9, 4) AS resultado FROM dual;
 -- MOD Function
 -- Syntax: MOD(n1, n2)
 SELECT MOD (14, 4) AS MOD_RESULT FROM DUAL;
+
+SELECT MOD(5, 3), REMAINDER(5,3) FROM DUAL;
