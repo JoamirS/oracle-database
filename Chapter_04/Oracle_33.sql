@@ -18,12 +18,11 @@ SELECT TO_CHAR(DATE_SALE, 'MM') AS MONTH_NUMBER, STDDEV(VALUE_SALE) AS SAMPLE_ST
 
 SELECT AVG(VALUE_SALE), MEDIAN(VALUE_SALE), STDDEV(VALUE_SALE), VARIANCE(VALUE_SALE)
     FROM VENDAS;
-    
+  
 SELECT DATE_SALE, VALUE_SALE, VARIANCE(VALUE_SALE) OVER (ORDER BY VALUE_SALE) "VARIANCE",
     STDDEV(VALUE_SALE) OVER (ORDER BY VALUE_SALE) "STD DEV"
     FROM VENDAS
     ORDER BY VALUE_SALE;
-    
+
 -- In our output, the VARIANCE and STDDEV are calculated cumulative, and you can see
 -- the final values match the aggregate results computed in the previous example.
-
