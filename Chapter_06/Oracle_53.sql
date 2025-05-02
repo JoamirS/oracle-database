@@ -1,0 +1,26 @@
+-- View
+
+-- Inline view
+SELECT * FROM (SELECT * FROM DUAL);
+
+-- There are no limit tp the number of inline views you can nest within inline.
+SELECT * FROM (SELECT * FROM (SELECT * FROM ( SELECT * FROM DUAL)));
+
+-- A typical subquerie limit is 255 subqueries
+
+SELECT A.SHIP_ID, A.COUNT_CABINS, B.COUNT_CRUISES
+    FROM (SELECT SHIP_ID, COUNT(SHIP_CABIN_ID) COUNT_CABINS
+    FROM SHIP_CABINS
+    GROUP BY SHIP_ID) A
+    JOIN
+    (SELECT SHIP_ID, COUNT(CRUISE_ORDER_ID) COUNT_CRUISES
+    FROM CRUISE_ORDERS
+    GROUP BY SHIP_ID) B
+    ON A.SHIP_ID = B.SHIP_ID;
+    
+-- Invisible views and tables
+CREATE TABLE SHIP_ADMIN
+    (SHIP_ADMIN_ID NUMBER(7) PRIMARY KEY,
+    SHIP_ID NUMBER,
+    CONSTRUTION_COST NUMBER(14,2) INVISIBLE);
+
